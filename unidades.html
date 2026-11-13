@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RescateVial | Unidades</title>
+  <link rel="stylesheet" href="src/css/unidades.css">
+</head>
+<body>
+  <div id="site-nav"></div>
+
+  <main class="contenedor">
+    <h1>Unidades de asistencia</h1>
+    <p>Consulta la disponibilidad y los datos de cada unidad.</p>
+
+    <a class="boton" href="unidad-formulario.html">Agregar unidad</a>
+
+    <p id="mensaje-vacio" hidden>No hay unidades registradas.</p>
+
+    <div class="tabla-contenedor">
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Tipo</th>
+            <th>Ubicación</th>
+            <th>Disponibilidad</th>
+            <th>Estado</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody id="lista-unidades"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script type="module" src="src/js/unidades.js"></script>
+</body>
+</html>

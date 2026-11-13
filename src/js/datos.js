@@ -32,3 +32,72 @@ export async function actualizarUsuario(id, datos) {
     guardarUsuarios();
     return usuario;
 }
+
+const unidadesIniciales = [
+    {
+        id: 1,
+        codigo_unidad: "AMB-01",
+        tipo_unidad: "Ambulancia",
+        placas: "ABC-123",
+        marca: "Ford",
+        modelo: "Transit",
+        capacidad: 2,
+        ubicacion_actual: "Base Centro",
+        disponibilidad: "Disponible",
+        estado: "Activa"
+    },
+    {
+        id: 2,
+        codigo_unidad: "GRU-01",
+        tipo_unidad: "Grúa",
+        placas: "XYZ-456",
+        marca: "International",
+        modelo: "MV",
+        capacidad: 1,
+        ubicacion_actual: "Base Norte",
+        disponibilidad: "En servicio",
+        estado: "Activa"
+    }
+];
+
+const unidadesGuardadas = localStorage.getItem("unidades");
+const unidades = unidadesGuardadas
+    ? JSON.parse(unidadesGuardadas)
+    : unidadesIniciales;
+
+function guardarUnidades() {
+    localStorage.setItem("unidades", JSON.stringify(unidades));
+}
+
+export async function obtenerUnidades() {
+    return unidades;
+}
+
+export async function obtenerUnidadPorId(id) {
+    return unidades.find(unidad => unidad.id === Number(id));
+}
+
+export async function agregarUnidad(datos) {
+    const nuevaUnidad = {
+        id: Date.now(),
+        ...datos,
+        capacidad: Number(datos.capacidad)
+    };
+
+    unidades.push(nuevaUnidad);
+    guardarUnidades();
+    return nuevaUnidad;
+}
+
+export async function actualizarUnidad(id, datos) {
+    const unidad = await obtenerUnidadPorId(id);
+
+    if (!unidad) return null;
+
+    Object.assign(unidad, datos, {
+        capacidad: Number(datos.capacidad)
+    });
+
+    guardarUnidades();
+    return unidad;
+}
