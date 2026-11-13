@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RescateVial | Detalle de unidad</title>
+  <link rel="stylesheet" href="src/css/unidad-detalle.css">
+</head>
+<body>
+  <div id="site-nav"></div>
+
+  <main class="contenedor">
+    <h1>Detalle de unidad</h1>
+
+    <p id="mensaje-error" hidden>No se encontró la unidad solicitada.</p>
+
+    <section id="datos-unidad" hidden>
+      <dl>
+        <dt>Código</dt>
+        <dd id="codigo-unidad"></dd>
+
+        <dt>Tipo de unidad</dt>
+        <dd id="tipo-unidad"></dd>
+
+        <dt>Placas</dt>
+        <dd id="placas-unidad"></dd>
+
+        <dt>Marca y modelo</dt>
+        <dd id="marca-modelo"></dd>
+
+        <dt>Capacidad</dt>
+        <dd id="capacidad-unidad"></dd>
+
+        <dt>Ubicación actual</dt>
+        <dd id="ubicacion-unidad"></dd>
+
+        <dt>Disponibilidad</dt>
+        <dd id="disponibilidad-unidad"></dd>
+
+        <dt>Estado</dt>
+        <dd id="estado-unidad"></dd>
+      </dl>
+
+      <a class="boton" id="enlace-editar" href="#">Editar unidad</a>
+    </section>
+
+    <a href="unidades.html">Volver a unidades</a>
+  </main>
+
+  <script type="module" src="src/js/unidad-detalle.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+@import './global.css';
+
+body {
+    background-color: #f2f5f7;
+    color: #183348;
+}
+
+.contenedor {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+dl {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 12px;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin: 0;
+}
+
+.boton {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 6px;
+    background-color: #087e83;
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 600px) {
+    .contenedor {
+        padding: 20px 14px;
+    }
+
+    dl {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    dd {
+        margin-bottom: 10px;
+    }
+}
