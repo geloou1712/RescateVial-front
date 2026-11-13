@@ -1,0 +1,122 @@
+@import './global.css';
+
+.portada {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #17384b;
+  background: #f2f6f7;
+}
+
+.portada-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 6%;
+  background: #17384b;
+  color: white;
+}
+
+.portada-header img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.portada-header p {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.portada-main {
+  width: min(100% - 32px, 980px);
+  margin: auto;
+  padding: 56px 0;
+}
+
+.portada-presentacion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  padding: 40px 0;
+}
+
+.portada-logo {
+  width: min(240px, 38vw);
+  height: auto;
+}
+
+.portada-texto {
+  max-width: 560px;
+}
+
+.portada-texto h1 {
+  margin: 0 0 16px;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+}
+
+.portada-texto p {
+  line-height: 1.6;
+}
+
+.portada-eslogan {
+  margin: 32px 0;
+  padding: 24px;
+  border-left: 5px solid #e58a35;
+  border-radius: 8px;
+  background: white;
+  text-align: center;
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
+  font-weight: 700;
+}
+
+.portada-servicios {
+  margin-top: 40px;
+}
+
+.portada-servicios ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.portada-servicios li {
+  padding: 20px;
+  border-radius: 10px;
+  background: white;
+}
+
+.portada-enlace {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  border-radius: 6px;
+  background: #07858a;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.portada-enlace:hover {
+  background: #066c70;
+}
+
+@media (max-width: 600px) {
+  .portada-presentacion {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .portada-logo {
+    width: 150px;
+  }
+
+  .portada-servicios ul {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,59 +1,100 @@
 @import './global.css';
 
 body {
-    background-color: #f2f5f7;
-    color: #183348;
+  background: #f2f5f7;
+  color: #183348;
 }
 
 .contenedor {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 30px 20px;
+  width: min(100% - 32px, 800px);
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.contenedor h1 {
+  margin: 0 0 22px;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
 }
 
 form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: white;
+  display: grid;
+  grid-template-columns: minmax(140px, 0.7fr) minmax(0, 1.3fr);
+  align-items: center;
+  gap: 14px 18px;
+  padding: 26px;
+  border: 1px solid #d5e0e5;
+  border-radius: 10px;
+  background: white;
 }
 
 label {
-    font-weight: bold;
+  color: #536b79;
+  font-weight: 700;
 }
 
 input,
 select {
-    width: 100%;
-    min-height: 38px;
-    padding: 8px;
-    border: 1px solid #b8c6cf;
-    border-radius: 6px;
-    font: inherit;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 11px;
+  border: 1px solid #b8c6cf;
+  border-radius: 6px;
+  background: white;
+  color: #183348;
+  font: inherit;
+}
+
+input:focus,
+select:focus {
+  border-color: #087e83;
+  outline: 3px solid rgb(8 126 131 / 18%);
 }
 
 .boton {
-    padding: 10px 16px;
-    border: 0;
-    border-radius: 6px;
-    background-color: #087e83;
-    color: white;
-    font: inherit;
-    cursor: pointer;
+  justify-self: start;
+  padding: 11px 16px;
+  border: 0;
+  border-radius: 6px;
+  background: #087e83;
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
 }
 
-form a {
-    align-self: center;
+.boton:hover {
+  background: #066c70;
+}
+
+form a,
+form a:visited {
+  color: #087e83;
+  font-weight: 600;
+}
+
+form a:hover {
+  color: #066c70;
+}
+
+.boton:focus-visible,
+form a:focus-visible {
+  outline: 3px solid #e58a35;
+  outline-offset: 3px;
 }
 
 @media (max-width: 600px) {
-    .contenedor {
-        padding: 20px 14px;
-    }
+  .contenedor {
+    padding: 26px 0;
+  }
 
-    form {
-        grid-template-columns: 1fr;
-    }
+  form {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 20px;
+  }
+
+  .boton {
+    margin-top: 10px;
+  }
 }

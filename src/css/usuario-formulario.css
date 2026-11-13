@@ -1,52 +1,102 @@
 @import './global.css';
 
 body {
-    background-color: #f2f5f7;
-    color: #183348;
+  background: #f2f5f7;
+  color: #183348;
 }
 
-main{
-    box-sizing: border-box;
-    width: calc(100% - 40px);
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 24px;
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+main {
+  box-sizing: border-box;
+  width: min(100% - 32px, 600px);
+  margin: 40px auto;
+  padding: clamp(24px, 5vw, 36px);
+  border: 1px solid #d5e0e5;
+  border-radius: 12px;
+  background: white;
+}
+
+main h1 {
+  margin: 0 0 12px;
+  font-size: clamp(1.7rem, 4vw, 2.2rem);
+}
+
+main > a,
+main > a:visited {
+  color: #087e83;
+  font-weight: 600;
+}
+
+#mensaje:empty {
+  display: none;
+}
+
+#mensaje:not(:empty) {
+  margin: 18px 0 0;
+  padding: 12px;
+  border-radius: 6px;
+  background: #e8f0f2;
+  color: #183348;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+label {
+  margin-top: 4px;
+  font-weight: 700;
 }
 
 input {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #dce4e9;
-    border-radius: 6px;
-    font-size: 1rem;
-}
-button {
-    display: inline-block;
-    padding: 10px 16px;
-    background-color: #183348;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-}
-button:hover {
-    background-color: #0d7476;
-}
-button:disabled {
-      background-color: #dce4e9;
-    color: #334b59;
-    cursor: not-allowed;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 12px;
+  border: 1px solid #b8c6cf;
+  border-radius: 6px;
+  color: #183348;
+  font: inherit;
 }
 
+input:focus {
+  border-color: #087e83;
+  outline: 3px solid rgb(8 126 131 / 18%);
+}
+
+button {
+  min-height: 44px;
+  margin-top: 8px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 6px;
+  background: #087e83;
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: #066c70;
+}
+
+button:disabled {
+  background: #dce4e9;
+  color: #536b79;
+  cursor: not-allowed;
+}
+
+button:focus-visible,
+main > a:focus-visible {
+  outline: 3px solid #e58a35;
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  main {
+    margin: 24px auto;
+  }
+}
