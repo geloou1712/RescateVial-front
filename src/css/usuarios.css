@@ -1,0 +1,43 @@
+@import './global.css';
+body {
+    background-color: #f2f5f7;
+    color: #183348;
+}
+
+main {
+    width: calc(100% - 40px);
+    box-sizing: border-box;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 24px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+#lista-usuarios {
+    list-style: none;
+    padding: 0;
+   
+}
+
+#lista-usuarios li {
+    padding: 12px ;
+    border-bottom: 1px solid #dce4e9;
+}
+
+#lista-usuarios a {
+    
+    color: #0d7476;
+    
+}
+
+.boton {
+    display: inline-block;
+    padding: 10px 16px;
+    background-color: #183348;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    
+}
