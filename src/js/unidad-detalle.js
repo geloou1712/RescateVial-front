@@ -28,4 +28,9 @@ async function mostrarUnidad() {
         `unidad-formulario.html?id=${encodeURIComponent(unidad.id)}`;
 }
 
-mostrarUnidad();
+mostrarUnidad().catch(error => {
+    console.error("Error al cargar el detalle:", error);
+    const mensaje = document.querySelector("#mensaje-error");
+    mensaje.textContent = "Ocurrió un error al cargar la unidad.";
+    mensaje.hidden = false;
+});

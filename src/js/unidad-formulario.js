@@ -44,4 +44,7 @@ formulario.addEventListener("submit", async evento => {
     }
 });
 
-prepararFormulario();
+prepararFormulario().catch(error => {
+    console.error("Error al preparar el formulario:", error);
+    window.alert("No se pudo cargar la información de la unidad.");
+});

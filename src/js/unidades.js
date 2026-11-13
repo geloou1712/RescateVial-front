@@ -45,4 +45,8 @@ async function mostrarUnidades() {
     });
 }
 
-mostrarUnidades();
+mostrarUnidades().catch(error => {
+    console.error("Error al cargar las unidades:", error);
+    mensajeVacio.textContent = "No se pudieron cargar las unidades.";
+    mensajeVacio.hidden = false;
+});
