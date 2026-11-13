@@ -1,53 +1,66 @@
 # RescateVial
 
-RescateVial es la interfaz de un sistema para consultar incidentes viales y organizar la atención mediante unidades de asistencia. Este repositorio contiene el frontend desarrollado con HTML, CSS, JavaScript y Vite.
+**RescateVial** es una plataforma web para apoyar el registro y seguimiento de incidentes viales y la coordinación de unidades de asistencia. Este repositorio contiene las pantallas del frontend, desarrolladas con HTML, CSS, JavaScript y Vite.
 
-**Sitio publicado:** [rescatevialfr.vercel.app](https://rescatevialfr.vercel.app)
+En la versión actual se puede:
 
-## Pantallas
+- Consultar las unidades de asistencia y sus datos, así como agregar o editar unidades.
+- Consultar los usuarios registrados y agregar o editar usuarios.
+- Navegar desde la portada hasta el inicio de sesión y el panel principal.
 
-| Pantalla | Archivo | Función |
+La sección de **Incidentes** aparece como acceso en el panel principal, pero su pantalla todavía está pendiente de implementación.
+
+# Integrantes
+
+| Autor | GitHub |
+| --- | --- |
+| Angel Omar Luna Castillo | [@geloou1712](https://github.com/geloou1712) |
+| Santiago Ley Rodriguez | [@santiagoleymy-lang](https://github.com/santiagoleymy-lang) |
+
+# Lista de pantallas
+
+| Pantalla | Archivo | Descripción |
 | --- | --- | --- |
-| Portada | `index.html` | Presenta el sistema y permite ir al inicio de sesión. |
-| Inicio de sesión | `login.html` | Muestra el formulario de acceso y dirige al inicio del sistema. |
-| Inicio del sistema | `home.html` | Muestra los accesos a los módulos. |
-| Lista de usuarios | `usuarios.html` | Consulta los usuarios registrados. |
-| Detalle de usuario | `usuario-detalle.html?id=1` | Muestra un usuario por su identificador. |
+| Portada | `index.html` | Presenta el sistema y lleva al inicio de sesión. |
+| Inicio de sesión | `login.html` | Recibe los datos del formulario y abre el panel principal. |
+| Panel principal | `home.html` | Muestra los accesos a los módulos. |
+| Usuarios | `usuarios.html` | Muestra la lista de usuarios. |
+| Detalle de usuario | `usuario-detalle.html?id=1` | Muestra la información de un usuario. |
 | Formulario de usuario | `usuario-formulario.html` | Permite agregar o editar un usuario. |
-| Lista de unidades | `unidades.html` | Consulta las unidades de asistencia. |
-| Detalle de unidad | `unidad-detalle.html?id=1` | Muestra una unidad por su identificador. |
+| Unidades | `unidades.html` | Muestra la lista de unidades de asistencia. |
+| Detalle de unidad | `unidad-detalle.html?id=1` | Muestra la información de una unidad. |
 | Formulario de unidad | `unidad-formulario.html` | Permite agregar o editar una unidad. |
 
-El inicio muestra un acceso a **Incidentes**, pero su pantalla todavía está pendiente de implementación.
+# Datos y funcionamiento
 
-## Estado de los datos
+Los datos de ejemplo están definidos en `src/js/datos.js` como arreglos de objetos. Las funciones para consultarlos y modificarlos son asíncronas, y los cambios se guardan en el navegador con `localStorage`.
 
-Esta versión usa arreglos de objetos y funciones asíncronas en `src/js/datos.js`. Los cambios se conservan en el navegador mediante `localStorage`. El inicio de sesión es una demostración: todavía no autentica usuarios. La conexión con la API de Spring Boot se realizará en una etapa posterior.
+El inicio de sesión es de demostración y todavía no autentica usuarios. Este frontend aún no está conectado con la API de Spring Boot.
 
-## Ejecutar el proyecto
+# Comandos
 
-Necesitas tener instalados Node.js y npm. Después de clonar el repositorio, ejecuta:
+Para ejecutar el proyecto localmente, necesitas Node.js y npm.
 
-```bash
-npm install
-npm run dev
-```
+1. **Instalar dependencias.** Abre una terminal en la raíz del repositorio y ejecuta:
 
-Abre en el navegador la dirección local que muestre Vite. Para comprobar que el proyecto se puede compilar:
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run build
-```
+2. **Iniciar el servidor de desarrollo.** Ejecuta:
 
-## Estructura
+   ```bash
+   npm run dev
+   ```
 
-- Las páginas HTML están en la raíz del proyecto.
-- `src/css/` contiene los estilos.
-- `src/js/` contiene la lógica de las pantallas y los datos de ejemplo.
-- `src/partials/` contiene elementos compartidos, como la navegación.
-- `vite.config.js` configura la compilación de las distintas páginas.
+   Abre la dirección local que Vite muestre en la terminal.
 
-## Integrantes
+3. **Comprobar la compilación.** Ejecuta:
 
-- [@geloou1712](https://github.com/geloou1712)
-- [@santiagoleymy-lang](https://github.com/santiagoleymy-lang)
+   ```bash
+   npm run build
+   ```
+
+# Sitio publicado
+
+[Ver RescateVial en Vercel](https://rescatevialfr.vercel.app)
