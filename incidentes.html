@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RescateVial | Incidentes</title>
+  <link rel="stylesheet" href="src/css/incidentes.css">
+</head>
+<body>
+  <div id="site-nav"></div>
+  <main class="contenedor">
+    <h1>Incidentes</h1>
+    <p>Consulta los reportes registrados y su estado.</p>
+    <a class="boton" href="incidente-formulario.html">Agregar incidente</a>
+    <p id="mensaje-accion" role="status" hidden></p>
+    <p id="mensaje-vacio" role="status" hidden>No hay incidentes registrados.</p>
+    <div class="tabla-contenedor">
+      <table>
+        <thead><tr><th>Descripción</th><th>Ubicación</th><th>Prioridad</th><th>Estado</th><th>Detalle</th></tr></thead>
+        <tbody id="lista-incidentes"></tbody>
+      </table>
+    </div>
+  </main>
+  <script type="module" src="src/js/incidentes.js"></script>
+</body>
+</html>
