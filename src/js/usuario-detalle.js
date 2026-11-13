@@ -21,4 +21,6 @@ async function mostrarDetalle() {
     detalle.appendChild(enlaceEditar);
 }
 
-mostrarDetalle();
+mostrarDetalle().catch(function () {
+    detalle.textContent = "No se pudo cargar el usuario.";
+});

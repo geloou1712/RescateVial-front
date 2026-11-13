@@ -17,4 +17,8 @@ async function mostrarUsuarios() {
         listaUsuarios.appendChild(elemento);
     });
 }
-mostrarUsuarios();
+mostrarUsuarios().catch(function () {
+    const mensaje = document.createElement('li');
+    mensaje.textContent = 'No se pudo cargar la lista de usuarios.';
+    listaUsuarios.appendChild(mensaje);
+});

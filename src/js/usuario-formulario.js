@@ -41,4 +41,7 @@ formulario.addEventListener("submit", async function (evento) {
     window.location.href = "usuarios.html";
 });
 
-cargarUsuario();
+cargarUsuario().catch(function () {
+    mensaje.textContent = "No se pudo cargar el usuario.";
+    botonGuardar.disabled = true;
+});
