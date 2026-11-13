@@ -11,31 +11,57 @@
 
   <main class="contenedor">
     <section class="bienvenida">
-      <p>Panel principal</p>
-      <h1>Bienvenido a RescateVial</h1>
-      <p>Consulta los reportes y coordina la atención de incidentes viales.</p>
+      <div class="bienvenida-texto">
+        <p class="etiqueta">CENTRO DE COORDINACIÓN VIAL</p>
+        <h1>Atención vial, con respuesta coordinada</h1>
+        <p>
+          Consulta los reportes y encuentra rápidamente las herramientas
+          para coordinar la asistencia.
+        </p>
+        <a class="boton-principal" href="incidentes.html">
+          Consultar incidentes
+        </a>
+      </div>
+
+      <div class="bienvenida-marca">
+        <img src="src/img/rescatevial-logo.png" alt="">
+        <p>Atención rápida.<br>Apoyo en el camino.</p>
+      </div>
     </section>
 
     <section class="accesos">
-      <h2>Accesos rápidos</h2>
+      <div class="accesos-encabezado">
+        <div>
+          <p class="etiqueta">HERRAMIENTAS</p>
+          <h2>Módulos de trabajo</h2>
+        </div>
+        <p>Selecciona un módulo para continuar.</p>
+      </div>
 
       <div class="tarjetas">
-        <a class="tarjeta" href="incidentes.html">
+        <a class="tarjeta tarjeta-incidentes" href="incidentes.html">
           <h3>Incidentes</h3>
-          <p>Consulta los reportes registrados.</p>
+          <p>Consulta los reportes registrados y revisa su seguimiento.</p>
+          <span class="tarjeta-accion">Abrir módulo <span aria-hidden="true">→</span></span>
         </a>
 
-        <a class="tarjeta" href="unidades.html">
+        <a class="tarjeta tarjeta-unidades" href="unidades.html">
           <h3>Unidades</h3>
-          <p>Consulta las unidades de asistencia.</p>
+          <p>Consulta las unidades de asistencia y su disponibilidad.</p>
+          <span class="tarjeta-accion">Abrir módulo <span aria-hidden="true">→</span></span>
         </a>
 
-        <a class="tarjeta" href="usuarios.html">
+        <a class="tarjeta tarjeta-usuarios" href="usuarios.html">
           <h3>Usuarios</h3>
-          <p>Administra el acceso al sistema.</p>
+          <p>Administra las cuentas que tienen acceso al sistema.</p>
+          <span class="tarjeta-accion">Abrir módulo <span aria-hidden="true">→</span></span>
         </a>
       </div>
     </section>
+
+    <footer class="home-footer">
+      RescateVial <span aria-hidden="true">·</span> Coordinación de asistencia vial
+    </footer>
   </main>
 
   <script type="module" src="src/js/navegacion.js"></script>

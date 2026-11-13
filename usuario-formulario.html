@@ -1,33 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RescateVial | Formulario de usuario</title>
-    <link rel="stylesheet" href="./src/css/usuario-formulario.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RescateVial | Formulario de usuario</title>
+  <link rel="stylesheet" href="./src/css/usuario-formulario.css">
 </head>
 <body>
-    <header><p>RescateVial</p></header>
-    <main>
-        <h1>Formulario de usuario</h1>
-        <a href="usuarios.html">Volver a la lista de usuarios</a>
-        <p id="mensaje" role="status"></p>
-        <form>
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-            <label for="correo">Correo:</label>
-            <input type="email" id="correo" name="correo" required>
-            <label for="telefono">Teléfono:</label>
-            <input type="tel" id="telefono" name="telefono" required>
-            <label for="rol">Rol:</label>
-            <input type="text" id="rol" name="rol" list="roles" required>
-            <datalist id="roles"><option value="CIUDADANO"><option value="OPERADOR"><option value="ADMINISTRADOR"></datalist>
-            <label for="estado">Estado:</label>
-            <input type="text" id="estado" name="estado" list="estados" required>
-            <datalist id="estados"><option value="ACTIVO"></datalist>
-            <button type="submit" id="guardar-usuario">Guardar usuario</button>
-        </form>
-    </main>
-    <script type="module" src="./src/js/usuario-formulario.js"></script>
+  <div id="site-nav"></div>
+
+  <main>
+    <h1>Formulario de usuario</h1>
+    <a href="usuarios.html">Volver a la lista de usuarios</a>
+    <p id="mensaje" role="status"></p>
+
+    <form>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="correo">Correo:</label>
+      <input type="email" id="correo" name="correo" required>
+
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono" required>
+
+      <label for="rol">Rol:</label>
+      <input type="text" id="rol" name="rol" list="roles" required>
+      <datalist id="roles">
+        <option value="CIUDADANO">
+        <option value="OPERADOR">
+        <option value="ADMINISTRADOR">
+      </datalist>
+
+      <label for="estado">Estado:</label>
+      <input type="text" id="estado" name="estado" list="estados" required>
+      <datalist id="estados">
+        <option value="ACTIVO">
+      </datalist>
+
+      <button type="submit" id="guardar-usuario">Guardar usuario</button>
+    </form>
+  </main>
+
+  <script type="module" src="./src/js/navegacion.js"></script>
+  <script type="module" src="./src/js/usuario-formulario.js"></script>
 </body>
 </html>
