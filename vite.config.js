@@ -5,5 +5,6 @@ export default defineConfig({
   input: {
     portada: resolve(process.cwd(), 'index.html'),
     login: resolve(process.cwd(), 'login.html'),
+    home: resolve(process.cwd(), 'home.html'),
   },
 });

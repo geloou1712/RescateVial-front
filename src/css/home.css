@@ -1,0 +1,102 @@
+@import './global.css';
+
+body {
+  background-color: #f2f5f7;
+  color: #183348;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 28px;
+  background-color: #183348;
+}
+
+.brand {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.main-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.main-nav a:hover {
+  text-decoration: underline;
+}
+
+.contenedor {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+.bienvenida,
+.accesos {
+  margin-bottom: 24px;
+}
+
+.bienvenida {
+  padding: 28px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.bienvenida h1 {
+  margin-bottom: 8px;
+}
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.tarjeta {
+  padding: 20px;
+  border: 1px solid #d5e0e5;
+  border-radius: 10px;
+  background-color: white;
+  color: #183348;
+  text-decoration: none;
+}
+
+.tarjeta:hover {
+  border-color: #087e83;
+}
+
+@media (max-width: 800px) {
+  .tarjetas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .main-nav {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .contenedor {
+    padding: 22px 16px;
+  }
+
+  .tarjetas {
+    grid-template-columns: 1fr;
+  }
+}
