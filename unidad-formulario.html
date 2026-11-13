@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RescateVial | Formulario de unidad</title>
+  <link rel="stylesheet" href="src/css/unidad-formulario.css">
+</head>
+<body>
+  <div id="site-nav"></div>
+
+  <main class="contenedor">
+    <h1 id="titulo-formulario">Agregar unidad</h1>
+
+    <form id="formulario-unidad">
+      <label for="codigo_unidad">Código de unidad</label>
+      <input id="codigo_unidad" name="codigo_unidad" required>
+
+      <label for="tipo_unidad">Tipo de unidad</label>
+      <select id="tipo_unidad" name="tipo_unidad" required>
+        <option value="">Selecciona un tipo</option>
+        <option value="Ambulancia">Ambulancia</option>
+        <option value="Grúa">Grúa</option>
+        <option value="Protección Civil">Protección Civil</option>
+        <option value="Rescate">Rescate</option>
+      </select>
+
+      <label for="placas">Placas</label>
+      <input id="placas" name="placas" required>
+
+      <label for="marca">Marca</label>
+      <input id="marca" name="marca" required>
+
+      <label for="modelo">Modelo</label>
+      <input id="modelo" name="modelo" required>
+
+      <label for="capacidad">Capacidad</label>
+      <input id="capacidad" name="capacidad" type="number" min="1" required>
+
+      <label for="ubicacion_actual">Ubicación actual</label>
+      <input id="ubicacion_actual" name="ubicacion_actual" required>
+
+      <label for="disponibilidad">Disponibilidad</label>
+      <select id="disponibilidad" name="disponibilidad" required>
+        <option value="">Selecciona disponibilidad</option>
+        <option value="Disponible">Disponible</option>
+        <option value="En servicio">En servicio</option>
+        <option value="En mantenimiento">En mantenimiento</option>
+      </select>
+
+      <label for="estado">Estado</label>
+      <select id="estado" name="estado" required>
+        <option value="">Selecciona estado</option>
+        <option value="Activa">Activa</option>
+        <option value="Inactiva">Inactiva</option>
+      </select>
+
+      <button class="boton" type="submit">Guardar unidad</button>
+      <a href="unidades.html">Cancelar</a>
+    </form>
+  </main>
+
+  <script type="module" src="src/js/unidad-formulario.js"></script>
+</body>
+</html>

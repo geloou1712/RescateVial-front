@@ -1,0 +1,64 @@
+@import './global.css';
+
+body {
+    background-color: #f2f5f7;
+    color: #183348;
+}
+
+.contenedor {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.boton {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px 16px;
+    border-radius: 6px;
+    background-color: #087e83;
+    color: white;
+    text-decoration: none;
+}
+
+.tabla-contenedor {
+    width: 100%;
+    margin-top: 20px;
+    overflow-x: auto;
+    border-radius: 8px;
+    background-color: white;
+}
+
+table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #d5e0e5;
+    text-align: left;
+}
+
+th {
+    background-color: #e8f0f2;
+}
+
+@media (max-width: 600px) {
+    .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .main-nav {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .contenedor {
+        padding: 20px 14px;
+    }
+}
