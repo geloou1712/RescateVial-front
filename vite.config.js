@@ -2,7 +2,7 @@ import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  input: {
+  build: { rollupOptions: { input: {
     portada: resolve(process.cwd(), 'index.html'),
     login: resolve(process.cwd(), 'login.html'),
     home: resolve(process.cwd(), 'home.html'),
@@ -12,5 +12,8 @@ export default defineConfig({
     unidades: resolve(process.cwd(), 'unidades.html'),
     unidadDetalle: resolve(process.cwd(), 'unidad-detalle.html'),
     unidadFormulario: resolve(process.cwd(), 'unidad-formulario.html'),
-  },
+    incidentes: resolve(process.cwd(), 'incidentes.html'),
+    incidenteDetalle: resolve(process.cwd(), 'incidente-detalle.html'),
+    incidenteFormulario: resolve(process.cwd(), 'incidente-formulario.html'),
+  } } },
 });

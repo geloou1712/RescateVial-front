@@ -1,0 +1,99 @@
+@import './global.css';
+
+body {
+  background: #f2f5f7;
+  color: #183348;
+}
+
+.contenedor {
+  width: min(100% - 32px, 1120px);
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.contenedor h1 {
+  margin: 0 0 10px;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.contenedor > p {
+  margin: 0 0 24px;
+  color: #536b79;
+  line-height: 1.6;
+}
+
+.boton {
+  display: inline-block;
+  margin: 4px 0 12px;
+  padding: 11px 16px;
+  border: 0;
+  border-radius: 6px;
+  background: #087e83;
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.boton:hover {
+  background: #066c70;
+}
+
+.boton:focus-visible,
+a:focus-visible {
+  outline: 3px solid #e58a35;
+  outline-offset: 3px;
+}
+
+.tabla-contenedor {
+  width: 100%;
+  margin-top: 16px;
+  overflow-x: auto;
+  border: 1px solid #d5e0e5;
+  border-radius: 10px;
+  background: white;
+}
+
+table {
+  width: 100%;
+  min-width: 650px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #e1e8eb;
+  text-align: left;
+}
+
+th {
+  background: #e8f0f2;
+  color: #183348;
+  font-size: 0.92rem;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+tbody tr:hover {
+  background: #f7fafb;
+}
+
+td a {
+  color: #087e83;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .contenedor {
+    padding: 26px 0;
+  }
+
+  th,
+  td {
+    padding: 12px;
+  }
+}

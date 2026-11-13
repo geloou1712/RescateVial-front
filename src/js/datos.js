@@ -101,3 +101,37 @@ export async function actualizarUnidad(id, datos) {
     guardarUnidades();
     return unidad;
 }
+
+const incidentesIniciales = [
+    { id: 1, descripcion: "Choque entre dos vehículos", latitud: 19.4326, longitud: -99.1332, prioridad: "ALTA", estado: "PENDIENTE", usuarioId: 1, tipoIncidenteId: 1 },
+    { id: 2, descripcion: "Vehículo detenido por avería", latitud: 19.427, longitud: -99.14, prioridad: "MEDIA", estado: "PENDIENTE", usuarioId: 2, tipoIncidenteId: 2 },
+    { id: 3, descripcion: "Obstáculo en la vía", latitud: 19.42, longitud: -99.15, prioridad: "BAJA", estado: "PENDIENTE", usuarioId: 1, tipoIncidenteId: 3 }
+];
+const incidentesGuardados = localStorage.getItem("incidentes");
+const incidentes = incidentesGuardados ? JSON.parse(incidentesGuardados) : incidentesIniciales;
+function guardarIncidentes(valores) { localStorage.setItem("incidentes", JSON.stringify(valores)); }
+export async function obtenerIncidentes() { return incidentes; }
+export async function obtenerIncidentePorId(id) { return incidentes.find(incidente => incidente.id === Number(id)); }
+export async function agregarIncidente(datos) {
+    let id = Date.now();
+    while (incidentes.some(incidente => incidente.id === id)) id++;
+    const incidente = { ...datos, id };
+    guardarIncidentes([...incidentes, incidente]);
+    incidentes.push(incidente);
+    return incidente;
+}
+export async function actualizarIncidente(id, datos) {
+    const incidente = await obtenerIncidentePorId(id);
+    if (!incidente) return null;
+    guardarIncidentes(incidentes.map(actual => actual.id === incidente.id ? { ...actual, ...datos } : actual));
+    Object.assign(incidente, datos);
+    return incidente;
+}
+
+export async function eliminarIncidente(id) {
+    const posicion = incidentes.findIndex(incidente => incidente.id === Number(id));
+    if (posicion === -1) return false;
+    guardarIncidentes(incidentes.filter((_, indice) => indice !== posicion));
+    incidentes.splice(posicion, 1);
+    return true;
+}
