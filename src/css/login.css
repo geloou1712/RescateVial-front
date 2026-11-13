@@ -1,0 +1,48 @@
+@import './global.css';
+
+body {
+    background-color: #f2f5f7;
+    color: #183348;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    
+}
+section {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    padding: 32px;
+    width: 100%;
+    max-width: 400px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input{
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #b8c6cf;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #183348;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0f1e2a;
+}
