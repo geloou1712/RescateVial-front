@@ -1,35 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RescateVial | Inicio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RescateVial | Inicio</title>
+  <link rel="stylesheet" href="./src/css/index.css">
 </head>
-<body>
+<body class="portada">
+  <header class="portada-header">
+    <img src="./src/img/rescatevial-logo.png" alt="Logo de RescateVial">
+    <p>RescateVial</p>
+  </header>
 
-    <header>
-        <img src="src/img/logo.png" alt="Logo de RescateVial" width="100">
-        <p>RescateVial</p>
-        </header>   
+  <main class="portada-main">
+    <section class="portada-presentacion">
+      <img
+        class="portada-logo"
+        src="./src/img/rescatevial-logo.png"
+        alt="Símbolo de RescateVial"
+      >
 
-        <main>
-            <section>
-                <h1>Bienvenido a RescateVial</h1>
-                <p>RescateVial es una plataforma para registrar y consultar incidentes viales, facilitando la coordinación de unidades de asistencia y el seguimiento de cada reporte.</p>
-            </section>
+      <div class="portada-texto">
+        <h1>Bienvenido a RescateVial</h1>
+        <p>
+          Una plataforma para registrar y consultar incidentes viales,
+          coordinar unidades de asistencia y dar seguimiento a cada reporte.
+        </p>
+        <a class="portada-enlace" href="./login.html">Inicia sesión</a>
+      </div>
+    </section>
 
-            <section>
-                <h2>Servicios</h2>
-                <ul>
-                    <li>Registro de incidentes</li>
-                    <li>Consulta de reportes</li>
-                    <li>Seguimiento de unidades</li>
-                    
-                </ul>
-            </section>
-             <a href="login.html">Inicia sesión</a>
-        </main>
-               
-    
+    <p class="portada-eslogan">
+      Atención rápida. Apoyo en el camino.
+    </p>
+
+    <section class="portada-servicios">
+      <h2>¿Qué puedes hacer?</h2>
+      <ul>
+        <li>Registrar incidentes viales</li>
+        <li>Consultar reportes</li>
+        <li>Dar seguimiento a unidades de asistencia</li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>

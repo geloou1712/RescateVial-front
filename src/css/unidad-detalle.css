@@ -1,54 +1,100 @@
 @import './global.css';
 
 body {
-    background-color: #f2f5f7;
-    color: #183348;
+  background: #f2f5f7;
+  color: #183348;
 }
 
 .contenedor {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 30px 20px;
+  width: min(100% - 32px, 800px);
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.contenedor h1 {
+  margin: 0 0 22px;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
 }
 
 dl {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 12px;
-    margin: 20px 0;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: white;
+  display: grid;
+  grid-template-columns: minmax(150px, 0.8fr) 2fr;
+  column-gap: 20px;
+  row-gap: 0;
+  margin: 0 0 24px;
+  padding: 12px 22px;
+  border: 1px solid #d5e0e5;
+  border-radius: 10px;
+  background: white;
+}
+
+dt,
+dd {
+  padding: 12px 0;
+  border-bottom: 1px solid #e5ecef;
+}
+
+dl > :nth-last-child(-n + 2) {
+  border-bottom: 0;
 }
 
 dt {
-    font-weight: bold;
+  color: #536b79;
+  font-weight: 700;
 }
 
 dd {
-    margin: 0;
+  margin: 0;
+  font-weight: 600;
 }
 
 .boton {
-    display: inline-block;
-    padding: 10px 16px;
-    border-radius: 6px;
-    background-color: #087e83;
-    color: white;
-    text-decoration: none;
+  display: inline-block;
+  padding: 11px 16px;
+  border-radius: 6px;
+  background: #087e83;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.boton:hover {
+  background: #066c70;
+}
+
+.boton:focus-visible,
+a:focus-visible {
+  outline: 3px solid #e58a35;
+  outline-offset: 3px;
 }
 
 @media (max-width: 600px) {
-    .contenedor {
-        padding: 20px 14px;
-    }
+  .contenedor {
+    padding: 26px 0;
+  }
 
-    dl {
-        grid-template-columns: 1fr;
-        gap: 6px;
-    }
+  dl {
+    grid-template-columns: 1fr;
+    padding: 12px 18px;
+  }
 
-    dd {
-        margin-bottom: 10px;
-    }
+  dt {
+    padding-bottom: 2px;
+    border-bottom: 0;
+  }
+
+  dd {
+    padding-top: 2px;
+    margin-bottom: 8px;
+  }
+}
+
+.contenedor a:not(.boton),
+.contenedor a:not(.boton):visited {
+  color: #087e83;
+  font-weight: 600;
+}
+
+.contenedor a:not(.boton):hover {
+  color: #066c70;
 }
