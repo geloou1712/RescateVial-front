@@ -1,3 +1,4 @@
+import './main.js';
 import {obtenerUsuarios} from './datos.js';
 const listaUsuarios = document.querySelector('#lista-usuarios');
 async function mostrarUsuarios() {

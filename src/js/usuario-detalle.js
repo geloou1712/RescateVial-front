@@ -1,3 +1,4 @@
+import './main.js';
 import { obtenerUsuarioPorId } from "./datos.js";
 
 const detalle = document.querySelector("#detalle-usuario");

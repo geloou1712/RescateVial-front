@@ -1,3 +1,4 @@
+import './main.js';
 import { obtenerUsuarioPorId, agregarUsuario, actualizarUsuario } from "./datos.js";
 
 const formulario = document.querySelector("form");

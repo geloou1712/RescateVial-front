@@ -1,5 +1,5 @@
+import './main.js';
 import { obtenerIncidentes } from "./datos.js";
-import "./navegacion.js";
 
 const lista = document.querySelector("#lista-incidentes");
 const mensaje = document.querySelector("#mensaje-vacio");

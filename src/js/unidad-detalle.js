@@ -1,5 +1,5 @@
+import './main.js';
 import { obtenerUnidadPorId } from "./datos.js";
-import "./navegacion.js";
 
 async function mostrarUnidad() {
     const parametros = new URLSearchParams(window.location.search);
