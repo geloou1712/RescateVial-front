@@ -1,5 +1,5 @@
+import './main.js';
 import { obtenerIncidentePorId, eliminarIncidente } from "./datos.js";
-import "./navegacion.js";
 
 const detalle = document.querySelector("#detalle-incidente");
 const id = new URLSearchParams(window.location.search).get("id");

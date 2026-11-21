@@ -1,9 +1,9 @@
+import './main.js';
 import {
     agregarUnidad,
     actualizarUnidad,
     obtenerUnidadPorId
 } from "./datos.js";
-import "./navegacion.js";
 
 const formulario = document.querySelector("#formulario-unidad");
 const parametros = new URLSearchParams(window.location.search);
