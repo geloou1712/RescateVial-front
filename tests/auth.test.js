@@ -169,6 +169,15 @@ test('un 401 protegido elimina la sesión; un login rechazado muestra el error',
     assert.deepEqual(e.reemplazos, ['login.html']);
 });
 
+test('un registro rechazado no envía el token ni cierra la sesión', async () => {
+    const e = entorno({ usuario: ciudadano, fetch: async () => respuesta(401, { message: 'Registro rechazado' }) });
+    const { api } = await e.importar('api.js');
+    await assert.rejects(api.post('/api/auth/registro', { email: 'ana@example.com' }), /Registro rechazado/);
+    assert.equal(e.llamadas[0][1].headers.Authorization, undefined);
+    assert.equal(e.storage.has('sesion'), true);
+    assert.deepEqual(e.reemplazos, []);
+});
+
 test('los fallos de red, 403 y falta de configuración conservan mensajes útiles', async () => {
     const sinRed = entorno({ fetch: async () => { throw new Error('offline'); } });
     await assert.rejects((await sinRed.importar('api.js')).api.get('/recurso'), /No se pudo conectar/);

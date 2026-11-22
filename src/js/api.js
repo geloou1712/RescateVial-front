@@ -1,14 +1,16 @@
 import { obtenerToken, cerrarSesion } from './sesion.js'
 
-const API_URL = 'https://fakeapi-l9ei.onrender.com'
+const API_URL = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '')
 
 async function request(method, ruta, datos) {
+    if (!API_URL) throw new Error('Falta configurar VITE_API_URL.')
     const headers = {}
 
     if (datos !== undefined) headers['Content-Type'] = 'application/json'
 
     const token = obtenerToken()
-    if (token) headers.Authorization = `Bearer ${token}`
+    const rutaPublica = ruta === '/api/auth/login' || ruta === '/api/auth/registro'
+    if (token && !rutaPublica) headers.Authorization = `Bearer ${token}`
 
     let respuesta
 
@@ -22,7 +24,7 @@ async function request(method, ruta, datos) {
         throw new Error('No se pudo conectar con el servidor. Intenta de nuevo.')
     }
 
-    if (respuesta.status === 401 && ruta !== '/api/auth/login') {
+    if (respuesta.status === 401 && !rutaPublica) {
         cerrarSesion()
         throw new Error('Tu sesión expiró.')
     }

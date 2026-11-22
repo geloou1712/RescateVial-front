@@ -16,4 +16,9 @@ async function cargarPerfil() {
     }
 }
 
-cargarPerfil();
+cargarPerfil().catch(() => {
+    if (mensaje) {
+        mensaje.textContent = 'No se pudo cargar el perfil.';
+        mensaje.hidden = false;
+    }
+});
