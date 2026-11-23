@@ -1,4 +1,4 @@
-import { post } from './api.js';
+import { api } from './api.js';
 
 const formulario = document.querySelector('#form-registro');
 const mensaje = document.querySelector('#mensaje-registro');
@@ -14,7 +14,7 @@ formulario.addEventListener('submit', async evento => {
     boton.disabled = true;
     boton.textContent = 'Creando cuenta...';
     try {
-        await post('/api/auth/registro', datos);
+        await api.post('/api/auth/registro', datos);
         formulario.reset();
         mensaje.textContent = 'Cuenta creada. Ya puedes iniciar sesión.';
     } catch (error) {

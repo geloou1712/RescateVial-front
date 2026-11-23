@@ -45,7 +45,8 @@ label {
   font-weight: 700;
 }
 
-input {
+input,
+select {
   box-sizing: border-box;
   width: 100%;
   min-height: 44px;
@@ -56,7 +57,8 @@ input {
   font: inherit;
 }
 
-input:focus {
+input:focus,
+select:focus {
   border-color: #087e83;
   outline: 3px solid rgb(8 126 131 / 18%);
 }
@@ -130,3 +132,14 @@ section a:visited {
     padding: 12px 16px;
   }
 }
+select { background: white; }
+
+.error:not([hidden]) {
+  padding: 0.7rem 0.85rem;
+  border-radius: 10px;
+  background: #fbeaea;
+  color: #9b1c1c;
+  font-size: 0.9rem;
+}
+
+button:disabled { opacity: 0.6; cursor: wait; }

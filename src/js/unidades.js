@@ -1,5 +1,5 @@
+import './main.js';
 import { obtenerUnidades } from "./datos.js";
-import "./navegacion.js";
 
 const cuerpoTabla = document.querySelector("#lista-unidades");
 const mensajeVacio = document.querySelector("#mensaje-vacio");

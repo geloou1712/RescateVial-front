@@ -1,5 +1,5 @@
+import './main.js';
 import { obtenerIncidentePorId, agregarIncidente, actualizarIncidente } from "./datos.js";
-import "./navegacion.js";
 
 const formulario = document.querySelector("#formulario-incidente");
 const mensaje = document.querySelector("#mensaje");
