@@ -1,0 +1,17 @@
+@import './global.css';
+@import './login.css';
+
+select {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #b8c6cf;
+  border-radius: 6px;
+  background: white;
+  color: #183348;
+  font: inherit;
+}
+
+select:focus-visible { outline: 3px solid rgb(8 126 131 / 18%); }
+button:disabled { opacity: 0.6; cursor: wait; }

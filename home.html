@@ -6,14 +6,15 @@
   <title>RescateVial | Inicio</title>
   <link rel="stylesheet" href="src/css/home.css">
 </head>
-<body>
+<body data-seccion="home">
   <div id="site-nav"></div>
 
   <main class="contenedor">
     <section class="bienvenida">
       <div class="bienvenida-texto">
         <p class="etiqueta">CENTRO DE COORDINACIÓN VIAL</p>
-        <h1>Atención vial, con respuesta coordinada</h1>
+        <h1>Hola, <span id="saludo-nombre"></span></h1>
+        <p id="mensaje-home" role="status" hidden></p>
         <p>
           Consulta los reportes y encuentra rápidamente las herramientas
           para coordinar la asistencia.
@@ -64,6 +65,6 @@
     </footer>
   </main>
 
-  <script type="module" src="src/js/navegacion.js"></script>
+  <script type="module" src="src/js/home.js"></script>
 </body>
 </html>

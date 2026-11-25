@@ -5,6 +5,7 @@ export default defineConfig({
   build: { rollupOptions: { input: {
     portada: resolve(process.cwd(), 'index.html'),
     login: resolve(process.cwd(), 'login.html'),
+    registro: resolve(process.cwd(), 'registro.html'),
     home: resolve(process.cwd(), 'home.html'),
     usuarios: resolve(process.cwd(), 'usuarios.html'),
     usuarioDetalle: resolve(process.cwd(), 'usuario-detalle.html'),

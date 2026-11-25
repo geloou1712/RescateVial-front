@@ -8,7 +8,7 @@ En la versión actual se puede:
 - Consultar los usuarios registrados y agregar o editar usuarios.
 - Navegar desde la portada hasta el inicio de sesión y el panel principal.
 
-La sección de **Incidentes** aparece como acceso en el panel principal, pero su pantalla todavía está pendiente de implementación.
+La sección de **Incidentes** permite consultar, crear, editar y eliminar reportes guardados en este navegador.
 
 # Integrantes
 
@@ -22,7 +22,7 @@ La sección de **Incidentes** aparece como acceso en el panel principal, pero su
 | Pantalla | Archivo | Descripción |
 | --- | --- | --- |
 | Portada | `index.html` | Presenta el sistema y lleva al inicio de sesión. |
-| Inicio de sesión | `login.html` | Recibe los datos del formulario y abre el panel principal. |
+| Inicio de sesión | `login.html` | Autentica con correo, contraseña y rol, y guarda la sesión devuelta por la API. |
 | Panel principal | `home.html` | Muestra los accesos a los módulos. |
 | Usuarios | `usuarios.html` | Muestra la lista de usuarios. |
 | Detalle de usuario | `usuario-detalle.html?id=1` | Muestra la información de un usuario. |
@@ -35,7 +35,37 @@ La sección de **Incidentes** aparece como acceso en el panel principal, pero su
 
 Los datos de ejemplo están definidos en `src/js/datos.js` como arreglos de objetos. Las funciones para consultarlos y modificarlos son asíncronas, y los cambios se guardan en el navegador con `localStorage`.
 
-El inicio de sesión es de demostración y todavía no autentica usuarios. Este frontend aún no está conectado con la API de Spring Boot.
+El registro y el inicio de sesión usan la API configurada en VITE_API_URL. La sesión (token y usuario) se administra en src/js/sesion.js. El cliente src/js/api.js envía Bearer en las peticiones protegidas y cierra la sesión cuando recibe un 401. El inicio consulta /api/auth/yo para validar el token y mostrar el saludo.
+
+Todas las páginas internas importan primero src/js/main.js para exigir sesión. Los roles del proyecto son ciudadano, operador y administrador. Solo administrador accede a usuarios.html, usuario-detalle.html y usuario-formulario.html; las demás páginas internas requieren sesión y están disponibles para los tres roles. Las reglas viven en src/js/permisos.js y también ocultan los enlaces y tarjetas sin permiso. El rol de la sesión proviene de la respuesta de la API; el selector del login se comprueba contra ese valor.
+
+Los datos de usuarios, unidades e incidentes siguen siendo de demostración en localStorage. El formulario administrativo de usuarios no registra cuentas en la API: las cuentas de autenticación se crean desde registro.html. El backend propio exige token y restringe su API de usuarios a administradores. Los módulos de datos del frontend todavía conservan su funcionamiento de demostración; el registro, login y perfil sí usan el backend y Neon.
+
+# Configuración de autenticación
+
+- .env.example documenta la URL de una API propia local (http://localhost:8080).
+- Crear .env.local con VITE_API_URL=http://localhost:8080 para usar el backend propio local. api.js usa esa variable y tiene la misma URL local como valor por defecto. Git ignora este archivo mediante *.local.
+- Reiniciar Vite después de cambiar la variable.
+- En Vercel, configurar VITE_API_URL en Settings → Environment Variables y hacer Redeploy. La variable se incorpora durante la compilación.
+
+# Comprobación de la guía
+
+| Paso | Estado |
+| --- | --- |
+| 1. Variable de entorno | .env.example versionado; .env.local local e ignorado. |
+| 2. Sesión compartida | src/js/sesion.js guarda, lee y borra token y usuario. |
+| 3. Cliente API | GET, POST, PUT y DELETE, Bearer, errores y cierre por 401. |
+| 4. Permisos | Las tres páginas de usuarios requieren administrador. |
+| 5. Login | Correo, contraseña, rol, errores y estado de carga. |
+| 6. Header | Nombre, iniciales y cierre de sesión. |
+| 7. Protección común | Las diez páginas internas cargan main.js antes de su código. |
+| 8. Token en el inicio | GET /api/auth/yo y saludo obtenido de la API. |
+| 9. Cuentas por rol | Verificados ciudadano, operador y administrador contra el backend propio y Neon. |
+| 10. Vercel | Pendiente de verificar la variable y el redeploy en el proyecto publicado. |
+
+Para probar manualmente: crear cuentas de prueba con roles distintos desde registro.html, iniciar sesión, comprobar que ciudadano y operador no ven Usuarios y que tampoco acceden escribiendo sus URL, comprobar que administrador sí entra y cerrar sesión. Al borrar o invalidar el token, /api/auth/yo debe devolver 401 y volver al login. El registro público no ofrece administrador: esas cuentas se habilitan con autorización en la base. Las credenciales de las cuentas de prueba están en el .env del backend.
+
+Las 15 pruebas locales con npm test simulan la API y el navegador. Además se verificaron el registro y login reales en el navegador contra el backend local; la compilación npm run build terminó correctamente. Estas comprobaciones no verifican el despliegue publicado. Usan los módulos VM de Node.js para ejecutar los archivos reales, incluida la variable de Vite y la plantilla del header.
 
 # Comandos
 
