@@ -178,15 +178,15 @@ test('un registro rechazado no envía el token ni cierra la sesión', async () =
     assert.deepEqual(e.reemplazos, []);
 });
 
-test('los fallos de red, 403 y falta de configuración conservan mensajes útiles', async () => {
+test('los fallos de red y 403 conservan mensajes útiles y se admite la API local', async () => {
     const sinRed = entorno({ fetch: async () => { throw new Error('offline'); } });
     await assert.rejects((await sinRed.importar('api.js')).api.get('/recurso'), /No se pudo conectar/);
     const prohibido = entorno({ usuario: ciudadano, fetch: async () => respuesta(403, { message: 'Acceso denegado' }) });
     await assert.rejects((await prohibido.importar('api.js')).api.get('/recurso'), /Acceso denegado/);
     assert.equal(prohibido.storage.has('sesion'), true);
     const sinEnv = entorno({ env: '' });
-    await assert.rejects((await sinEnv.importar('api.js')).api.get('/recurso'), /VITE_API_URL/);
-    assert.equal(sinEnv.llamadas.length, 0);
+    await (await sinEnv.importar('api.js')).api.get('/recurso');
+    assert.equal(sinEnv.llamadas[0][0], 'http://localhost:8080/recurso');
 });
 
 test('login guarda el usuario de la API, envía el rol y restaura el botón', async () => {
@@ -239,6 +239,6 @@ test('cada página interna carga su módulo y protege su código primero', async
     const registro = await fs.readFile(new URL('registro.html', root), 'utf8');
     for (const rol of ['ciudadano', 'operador', 'administrador']) {
         assert.ok(login.includes(`value="${rol}"`));
-        assert.ok(registro.includes(`value="${rol}"`));
+        assert.equal(registro.includes(`value="${rol}"`), rol !== 'administrador');
     }
 });
